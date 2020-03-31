@@ -22,4 +22,4 @@ jobs:
         nmake asio
         nmake pthreads
         nmake libparc > $null
-        nmake hicn
+        nmake hicn > $null
