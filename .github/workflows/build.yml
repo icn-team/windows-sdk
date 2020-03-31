@@ -15,5 +15,5 @@ jobs:
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Build
       run: |
-        make init_vcpkg
-        make all
+        nmake init_vcpkg
+        nmake all
