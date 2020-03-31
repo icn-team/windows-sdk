@@ -15,8 +15,6 @@ jobs:
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Build
       run: |
-        New-Item -ItemType Directory -Force -Path build
-        cd build
         nmake init_vcpkg
         nmake openssl 
         nmake libevent
@@ -24,3 +22,4 @@ jobs:
         nmake asio
         nmake pthreads
         nmake libparc
+        nmake hicn
