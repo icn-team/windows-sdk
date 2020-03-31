@@ -40,7 +40,7 @@ download_libparc: init
 	@powershell cd src; if (-not (Test-Path 'cframework' )) { echo "cframework not found"; git clone -b cframework/master https://gerrit.fd.io/r/cicn cframework; }
 
 libparc: download_libparc
-	@powershell Set-Variable -Name "BASE_DIR" -Value (pwd).Path;  New-Item -ItemType Directory -Force -Path "build\libparc"; cd build\libparc; cmake $${BASE_DIR}\src\cframework\libparc -G \"NMake Makefiles\" -DCMAKE_TOOLCHAIN_FILE=\"$${BASE_DIR}\vcpkg\scripts\buildsystems\vcpkg.cmake\" -DCMAKE_INSTALL_PREFIX=\"$${BASE_DIR}\usr\" -DCMAKE_BUILD_TYPE=\"Release\"; NMake install
+	@powershell Set-Variable -Name "BASE_DIR" -Value (pwd).Path;  New-Item -ItemType Directory -Force -Path "build\libparc"; cd build\libparc; cmake $${BASE_DIR}\src\cframework\libparc -G \"NMake Makefiles\" -DCMAKE_TOOLCHAIN_FILE=\"$${BASE_DIR}\vcpkg\scripts\buildsystems\vcpkg.cmake\" -DCMAKE_INSTALL_PREFIX=\"$${BASE_DIR}\usr\" -DCMAKE_BUILD_TYPE=\"Release\"; NMake install VERBOSE=1
 
 download_hicn: init
 	@powershell cd src; if (-not (Test-Path 'hicn' )) { echo "hicn not found"; git clone https://github.com/FDio/hicn.git; }
