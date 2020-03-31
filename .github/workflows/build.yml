@@ -15,17 +15,11 @@ jobs:
     - uses: ilammy/msvc-dev-cmd@v1
     - name: Build
       run: |
-        @echo off
-        rem Args[x]: nmake arguments
-        echo.>> %~n0.log
-        echo %date% %time%>> %~n0.log
-        echo nmake /NOLOGO %*>> %~n0.log
         nmake init_vcpkg
         nmake openssl 
         nmake libevent
         nmake libconfig
         nmake asio
         nmake pthreads
-        nmake libparc
+        nmake libparc > $null
         nmake hicn
-        echo %errorlevel%>> %~n0.log
