@@ -7,9 +7,7 @@ on:
 
 jobs:
   build:
-
     runs-on: [windows-latest]
-
     steps:
     - uses: actions/checkout@v2
     - uses: ilammy/msvc-dev-cmd@v1
@@ -21,5 +19,5 @@ jobs:
         nmake libconfig
         nmake asio
         nmake pthreads
-        nmake libparc > $null
-        nmake hicn > $null
+        nmake libparc
+        nmake hicn
