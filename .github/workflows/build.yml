@@ -16,4 +16,9 @@ jobs:
     - name: Build
       run: |
         nmake init_vcpkg
-        nmake all
+        nmake openssl 
+        nmake libevent
+        nmake libconfig
+        nmake asio
+        nmake pthreads
+        nmake libparc
