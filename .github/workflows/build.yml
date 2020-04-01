@@ -19,5 +19,5 @@ jobs:
         nmake libconfig
         nmake asio
         nmake pthreads
-        try {nmake libparc} catch System.Exception {}
-        try {nmake hicn } catch System.Exception {}
+        try {nmake libparc} catch {}
+        try {nmake hicn } catch {}
