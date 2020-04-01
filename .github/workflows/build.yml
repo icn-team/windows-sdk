@@ -19,5 +19,6 @@ jobs:
         nmake libconfig
         nmake asio
         nmake pthreads
-        try {nmake libparc} catch {}
-        try {nmake hicn } catch {}
+        nmake libparc
+        nmake hicn
+      shell: cmd
