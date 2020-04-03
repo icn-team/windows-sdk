@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  schedule:
+    - cron:  '30 1 * * *'  
+  push:
+
+jobs:
+  build:
+    runs-on: [windows-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ilammy/msvc-dev-cmd@v1
+    - name: Build
+      run: |
+        nmake init_vcpkg
+        nmake openssl 
+        nmake libevent
+        nmake libconfig
+        nmake asio
+        nmake pthreads
+        nmake libparc /I
+        nmake hicn /I
+      shell: cmd
