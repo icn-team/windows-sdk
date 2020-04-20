@@ -53,6 +53,7 @@ all: openssl libevent libconfig asio pthreads libparc hicn
 help:
 	@echo "---- Basic build targets ----"
 	@echo "make all					- Compile hICN libraries and the dependencies"
+	@echo "make init_vcpkg				- Init vcpkg"
 	@echo "make openssl					- Compile openssl"
 	@echo "make libevent					- Download and compile libevent"
 	@echo "make libparc					- Download and compile libparc"
