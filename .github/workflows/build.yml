@@ -19,6 +19,6 @@ jobs:
         nmake libconfig
         nmake asio
         nmake pthreads 
-        nmake libparc /I || exit /b
-        nmake hicn /I || exit /b
+        nmake libparc
+        nmake hicn
       shell: cmd
