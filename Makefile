@@ -43,7 +43,7 @@ libparc: download_libparc
 	@powershell -noninteractive -nologo try {Set-Variable -Name "BASE_DIR" -Value (pwd).Path;  New-Item -ItemType Directory -Force -Path "build\libparc"; cd build\libparc; cmake $${BASE_DIR}\src\cframework\libparc -G \"NMake Makefiles\" -DCMAKE_TOOLCHAIN_FILE=\"$${BASE_DIR}\vcpkg\scripts\buildsystems\vcpkg.cmake\" -DCMAKE_INSTALL_PREFIX=\"$${BASE_DIR}\usr\" -DCMAKE_BUILD_TYPE=\"Release\"; nmake install; } catch {};
 
 download_hicn: init
-	@powershell -noninteractive -nologo cd src; if (-not (Test-Path 'hicn' )) { echo "hicn not found"; git clone https://github.com/manang/hicn.git; }
+	@powershell -noninteractive -nologo cd src; if (-not (Test-Path 'hicn' )) { echo "hicn not found"; git clone https://github.com/hicn/hicn.git; }
 	
 hicn: download_hicn
 	@powershell -noninteractive -nologo try { Set-Variable -Name "BASE_DIR" -Value (pwd).Path; New-Item -ItemType Directory -Force -Path "build\hicn"; cd build\hicn; cmake $${BASE_DIR}\src\hicn -G \"NMake Makefiles\"  -DBUILD_CTRL=OFF -DCMAKE_TOOLCHAIN_FILE=\"$${BASE_DIR}\vcpkg\scripts\buildsystems\vcpkg.cmake\" -DCMAKE_INSTALL_PREFIX=\"$${BASE_DIR}\usr\" -DDISABLE_SHARED_LIBRARIES=ON -DCMAKE_BUILD_TYPE="Release" -DLIBPARC_HOME=\"$${BASE_DIR}\usr\" -DCMAKE_INSTALL_PREFIX=\"$${BASE_DIR}\usr\"; nmake install; } catch {};
